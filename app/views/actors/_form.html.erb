@@ -1,0 +1,38 @@
+<!-- app/views/actors/_form.html.erb -->
+<%= form_with(model: @actor, local: true) do |form| %>
+  <% if @actor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@actor.errors.count, 'error') %> prohibited this actor from being saved:</h2>
+
+      <ul>
+        <% @actor.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field <%= 'field_with_errors' if @actor.errors[:name].any? %>">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field <%= 'field_with_errors' if @actor.errors[:age].any? %>">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="field <%= 'field_with_errors' if @actor.errors[:height].any? %>">
+    <%= form.label :height %>
+    <%= form.number_field :height %>
+  </div>
+
+  <div class="field <%= 'field_with_errors' if @actor.errors[:rating].any? %>">
+    <%= form.label :rating %>
+    <%= form.number_field :rating %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

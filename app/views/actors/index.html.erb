@@ -1,0 +1,28 @@
+<!-- app/views/actors/index.html.erb -->
+<h1>Actors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Rating</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @actors.each do |actor| %>
+      <tr>
+        <td><%= actor.name %></td>
+        <td><%= actor.age %></td>
+        <td><%= actor.height %></td>
+        <td><%= actor.rating %></td>
+        <td>
+          <%= link_to 'Edit', edit_actor_path(actor) %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Actor', new_actor_path %>
